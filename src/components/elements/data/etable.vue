@@ -1,5 +1,34 @@
 <template>
     <section>
+
+
+<hr>
+<h2>Sraban form</h2>
+<el-table ref="filterTable" @sort-change="sortChange" @header-click="headerClick" :data="tableDataSraban" :default-sort="{prop: 'date', order: 'descending'}" style="width: 100%">
+    
+    
+    <el-table-column prop="date" label="Date" sortable width="180" column-key="date"
+      :filters="[{text: '2016-05-01', value: '2016-05-01'}, {text: '2016-05-02', value: '2016-05-02'}, {text: '2016-05-03', value: '2016-05-03'}, {text: '2016-05-04', value: '2016-05-04'}]"
+      :filter-method="filterHandler" >
+    </el-table-column>
+    
+    <el-table-column prop="name" label="Name" width="180" sortable class-name="ts" :render-header="renderHeaderSraban"></el-table-column>
+
+    <el-table-column prop="address" label="Address" :formatter="formatterSraban" :render-header="renderHeader2" sortable></el-table-column>
+    
+    <el-table-column prop="tag" label="Tag" width="100" sortable
+      :filters="[{ text: 'Home', value: 'Home' }, { text: 'Office', value: 'Office' }]"
+      :filter-method="filterTagSraban" filter-placement="bottom-end">
+      <template slot-scope="scope">
+        <el-tag
+          :type="scope.row.tag === 'Home' ? 'primary' : 'success'"
+          disable-transitions>{{scope.row.tag}}</el-tag>
+      </template>
+    </el-table-column>
+
+  </el-table>
+
+
         <hr>
         <h2>Basic form</h2>
         <el-table
@@ -845,10 +874,88 @@
                 amount1: '539',
                 amount2: '4.1',
                 amount3: 15
-            }]
+            }],
+            tableDataSraban: [{
+                date: '2016-05-03',
+                name: 'Tom',
+                address: 'No. 189, Grove St, Los Angeles',
+                tag: 'Home'
+                }, {
+                date: '2016-05-02',
+                name: 'Tom',
+                address: 'No. 189, Grove St, Los Angeles',
+                tag: 'Office'
+                }, {
+                date: '2016-05-04',
+                name: 'Tom',
+                address: 'No. 189, Grove St, Los Angeles',
+                tag: 'Home'
+                }, {
+                date: '2016-05-01',
+                name: 'Tom',
+                address: 'No. 189, Grove St, Los Angeles',
+                tag: 'Office'
+                }]
         }),
         methods: {
-            tableRowClassName({row, rowIndex}) {
+            /* -- */
+            resetDateFilter() {
+                this.$refs.filterTable.clearFilter('date');
+            },
+            clearFilter() {
+                this.$refs.filterTable.clearFilter();
+            },
+            sortChange(sortProps){
+                //console.log("Header sorted: ", sortProps.column, event);
+            }, 
+            headerClick(column, event){
+                //console.log("Header clicked: " + JSON.stringify(column));
+            },
+            formatterSraban(row, column) {
+                return row.address;
+            },
+            filterTagSraban(value, row) {
+                return row.tag === value;
+            },
+            handleHeader3(){
+                console.log('kumar', arguments);
+            },
+            renderHeaderSraban(h, { column, $index }){
+                // console.log('sraban', column, column.property );
+                let c = column.property;
+                return h('el-button', 
+                    {
+                        class: 'renderTableHead',
+                        attrs: { type: 'primary', size: 'mini' },
+                        on: { click: (event) => { this.handleHeader3('Nilu Kumar',c , event) } }
+                    },
+                    [column.label]
+                );
+            },
+            addColOption(){
+
+            },
+            addColOptions(){
+                console.log(arguments);
+            },
+            renderHeader2(h, { column, $index }) {
+                return (
+                    <div>
+                        <el-button type="text" size="small">
+                            btn1 <i class="el-icon-plus" onClick={this.addColOption}></i>
+                        </el-button>
+                        <el-button type="text" size="small">
+                           btn2 <i class="el-icon-minus" onClick={this.addColOptions.bind(this, 'Arun Kumar')}></i>
+                        </el-button>
+                    </div>
+                );
+            },
+            filterHandler(value, row, column) {
+                const property = column['property'];
+                return row[property] === value;
+            }
+            /* -- */
+            ,tableRowClassName({row, rowIndex}) {
                 if (rowIndex === 1) {
                     return 'warning-row';
                 } else if (rowIndex === 3) {
