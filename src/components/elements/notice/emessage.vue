@@ -1,30 +1,30 @@
 <template>
     <section>
         <hr>
-        <h2>基础用法</h2>
-        <el-button :plain="true" @click="open">打开消息提示</el-button>
+        <h2>Basic usage</h2>
+        <el-button :plain="true" @click="open">Open message prompt</el-button>
         <el-button :plain="true" @click="openVn">VNode</el-button>
         <hr>
-        <h2>不同状态</h2>
-        <el-button :plain="true" @click="open2">成功</el-button>
-        <el-button :plain="true" @click="open3">警告</el-button>
-        <el-button :plain="true" @click="open">消息</el-button>
-        <el-button :plain="true" @click="open4">错误</el-button>
+        <h2>Different states</h2>
+        <el-button :plain="true" @click="open2">success</el-button>
+        <el-button :plain="true" @click="open3">Warning</el-button>
+        <el-button :plain="true" @click="open">message</el-button>
+        <el-button :plain="true" @click="open4">error</el-button>
 
         <hr>
-        <h2>可关闭</h2>
-        <el-button :plain="true" @click="open5">消息</el-button>
-        <el-button :plain="true" @click="open6">成功</el-button>
-        <el-button :plain="true" @click="open7">警告</el-button>
-        <el-button :plain="true" @click="open8">错误</el-button>
+        <h2>Closeable</h2>
+        <el-button :plain="true" @click="open5">message</el-button>
+        <el-button :plain="true" @click="open6">Success</el-button>
+        <el-button :plain="true" @click="open7">Warning</el-button>
+        <el-button :plain="true" @click="open8">error</el-button>
 
         <hr>
-        <h2>文字居中</h2>
-        <el-button :plain="true" @click="openCenter">文字居中</el-button>
+        <h2>Center text</h2>
+        <el-button :plain="true" @click="openCenter">Center text</el-button>
 
         <hr>
-        <h2>使用 HTML 片段</h2>
-        <el-button :plain="true" @click="openHTML">使用 HTML 片段</el-button>
+        <h2>Use HTML Fragments</h2>
+        <el-button :plain="true" @click="openHTML">Use HTML snippet</el-button>
 
     </section>
 </template>
@@ -35,36 +35,36 @@
         data: () => ({}),
         methods: {
             open() {
-                this.$message('这是一条消息提示');
+                this.$message('This is a message prompt');
             },
             open2() {
                 this.$message({
-                    message: '恭喜你，这是一条成功消息',
+                    message: 'Congratulations, this is a success message',
                     type: 'success'
                 });
             },
 
             open3() {
                 this.$message({
-                    message: '警告哦，这是一条警告消息',
+                    message: 'Warning, this is a warning message',
                     type: 'warning'
                 });
             },
 
             open4() {
-                this.$message.error('错了哦，这是一条错误消息');
+                this.$message.error('wrong, this is an error message');
             },
             open5() {
                 this.$message({
                     showClose: true,
-                    message: '这是一条消息提示'
+                    message: 'This is a message prompt'
                 });
             },
 
             open6() {
                 this.$message({
                     showClose: true,
-                    message: '恭喜你，这是一条成功消息',
+                    message: 'Congratulations, this is a success message',
                     type: 'success'
                 });
             },
@@ -72,7 +72,7 @@
             open7() {
                 this.$message({
                     showClose: true,
-                    message: '警告哦，这是一条警告消息',
+                    message: 'Warning, this is a warning message',
                     type: 'warning'
                 });
             },
@@ -80,21 +80,21 @@
             open8() {
                 this.$message({
                     showClose: true,
-                    message: '错了哦，这是一条错误消息',
+                    message: 'Wrong, this is an error message',
                     type: 'error'
                 });
             },
 
             openCenter() {
                 this.$message({
-                    message: '居中的文字',
+                    message: 'Centered text',
                     center: true
                 });
             },
             openHTML() {
                 this.$message({
                     dangerouslyUseHTMLString: true,
-                    message: '<strong>这是 <i>HTML</i> 片段</strong>'
+                    message: '<strong>This is an <i>HTML</i> fragment</strong>'
                 });
             },
 
@@ -102,7 +102,7 @@
                 const h = this.$createElement;
                 this.$message({
                     message: h('p', null, [
-                        h('span', null, '内容可以是 '),
+                        h('span', null, 'The content can be '),
                         h('i', { style: 'color: teal' }, 'VNode')
                     ])
                 });

@@ -1,34 +1,34 @@
 <template>
     <section>
         <hr>
-        <h2>基础用法</h2>
+        <h2>Basic usage</h2>
         <el-tabs v-model="activeName" @tab-click="handleClick">
-            <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
-            <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
-            <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
-            <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+            <el-tab-pane label="User Management" name="first">User Management</el-tab-pane>
+            <el-tab-pane label="Configuration Management" name="second">Configuration Management</el-tab-pane>
+            <el-tab-pane label="Role Management" name="third">Role Management</el-tab-pane>
+            <el-tab-pane label="Compensation for timed tasks" name="fourth">Compensation for timed tasks</el-tab-pane>
         </el-tabs>
 
         <hr>
-        <h2>选项卡样式</h2>
+        <h2>Tab style</h2>
         <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">
-            <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
-            <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
-            <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
-            <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+            <el-tab-pane label="User Management" name="first">User Management</el-tab-pane>
+            <el-tab-pane label="Configuration Management" name="second">Configuration Management</el-tab-pane>
+            <el-tab-pane label="Role Management" name="third">Role Management</el-tab-pane>
+            <el-tab-pane label="Compensation for timed tasks" name="fourth">Compensation for timed tasks</el-tab-pane>
         </el-tabs>
 
         <hr>
-        <h2>卡片化</h2>
+        <h2>Cardization</h2>
         <el-tabs type="border-card">
-            <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-            <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-            <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-            <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+            <el-tab-pane label="User Management">User Management</el-tab-pane>
+            <el-tab-pane label="Configuration Management">Configuration Management</el-tab-pane>
+            <el-tab-pane label="Role Management">Role Management</el-tab-pane>
+            <el-tab-pane label="Timing task compensation">Timing task compensation</el-tab-pane>
         </el-tabs>
 
         <hr>
-        <h2>位置</h2>
+        <h2>Location</h2>
         <el-radio-group v-model="tabPosition" style="margin-bottom: 30px;">
             <el-radio-button label="top">top</el-radio-button>
             <el-radio-button label="right">right</el-radio-button>
@@ -37,29 +37,29 @@
         </el-radio-group>
 
         <el-tabs :tab-position="tabPosition" style="height: 200px;">
-            <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-            <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-            <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-            <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+            <el-tab-pane label="User Management">User Management</el-tab-pane>
+            <el-tab-pane label="Configuration Management">Configuration Management</el-tab-pane>
+            <el-tab-pane label="Role Management">Role Management</el-tab-pane>
+            <el-tab-pane label="Timing task compensation">Timing task compensation</el-tab-pane>
         </el-tabs>
 
         <hr>
-        <h2>自定义标签页</h2>
+        <h2>Custom Tabs</h2>
         <el-tabs type="border-card">
             <el-tab-pane>
-                <span slot="label"><i class="el-icon-date"></i> 我的行程</span>
-                我的行程
+                <span slot="label"><i class="el-icon-date"></i> My Itinerary</span>
+                my itinerary
             </el-tab-pane>
-            <el-tab-pane label="消息中心">消息中心</el-tab-pane>
-            <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-            <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+            <el-tab-pane label="Message Center">Message Center</el-tab-pane>
+            <el-tab-pane label="Role Management">Role Management</el-tab-pane>
+            <el-tab-pane label="Timing task compensation">Timing task compensation</el-tab-pane>
         </el-tabs>
 
         <hr>
-        <h2>动态增减标签页</h2>
+        <h2>Dynamic increase and decrease of tabs</h2>
         <el-tabs v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
             <el-tab-pane
-                    :key="item.name"
+                    :key="item.name+index"
                     v-for="(item, index) in editableTabs"
                     :label="item.title"
                     :name="item.name"
@@ -69,7 +69,7 @@
         </el-tabs>
 
         <hr>
-        <h2>自定义增加标签页触发器</h2>
+        <h2>Custom add tab trigger</h2>
         <div style="margin-bottom: 20px;">
             <el-button
                     size="small"
@@ -81,7 +81,7 @@
         <el-tabs v-model="editableTabsValue2" type="card" closable @tab-remove="removeTab">
             <el-tab-pane
                     v-for="(item, index) in editableTabs2"
-                    :key="item.name"
+                    :key="item.name+index"
                     :label="item.title"
                     :name="item.name"
             >
@@ -138,8 +138,7 @@
                 if (action === 'remove') {
                     let tabs = this.editableTabs;
                     let activeName = this.editableTabsValue;
-                    if (activeName === targetName) {
-                        tabs.forEach((tab, index) => {
+                    if (activeName === targetName) {tabs.forEach((tab, index) => {
                             if (tab.name === targetName) {
                                 let nextTab = tabs[index + 1] || tabs[index - 1];
                                 if (nextTab) {

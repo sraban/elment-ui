@@ -1,69 +1,69 @@
 <template>
     <section>
         <hr>
-        <h2>基础用法</h2>
+        <h2>Basic usage</h2>
         <el-collapse v-model="activeNames" @change="handleChange">
-            <el-collapse-item title="一致性 Consistency" name="1">
-                <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
-                <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+            <el-collapse-item title="Consistency" name="1">
+                <div>Consistent with real life: Consistent with the process and logic of real life, and follow the language and concepts that users are used to;</div>
+                <div> is consistent in the interface: all elements and structures need to be consistent, such as: design styles, icons and text, element positions, etc. </div>
             </el-collapse-item>
-            <el-collapse-item title="反馈 Feedback" name="2">
-                <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
-                <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+            <el-collapse-item title="Feedback Feedback" name="2">
+                <div>Control feedback: Allow users to clearly perceive their operations through interface styles and interactive effects;</div>
+                <div> page feedback: After the operation, the current state is clearly displayed through the changes of page elements. </div>
             </el-collapse-item>
-            <el-collapse-item title="效率 Efficiency" name="3">
-                <div>简化流程：设计简洁直观的操作流程；</div>
-                <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
-                <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+            <el-collapse-item title="Efficiency" name="3">
+                <div>Simplify the process: design a simple and intuitive operation process;</div>
+                <div>Clear and clear: the language is clear and clear, allowing users to quickly understand and make decisions;</div>
+                <div> Helps user identification: The interface is simple and straightforward, allowing users to quickly identify rather than recall, reducing the burden of user memory. </div>
             </el-collapse-item>
-            <el-collapse-item title="可控 Controllability" name="4">
-                <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
-                <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+            <el-collapse-item title="Controllability" name="4">
+                <div>User decision-making: According to the scene, users can be given operation suggestions or safety tips, but they cannot replace the user's decision-making;</div>
+                <div>The result is controllable: the user can freely perform operations, including undoing, rolling back, and terminating the current operation. </div>
             </el-collapse-item>
         </el-collapse>
         <hr>
-        <h2>手风琴效果</h2>
+        <h2>Accordion effect</h2>
         <el-collapse v-model="activeName" accordion>
-            <el-collapse-item title="一致性 Consistency" name="1">
-                <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
-                <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+            <el-collapse-item title="Consistency" name="1">
+                <div>Consistent with real life: Consistent with the process and logic of real life, and follow the language and concepts that users are used to;</div>
+                <div> is consistent in the interface: all elements and structures need to be consistent, such as: design styles, icons and text, element positions, etc. </div>
             </el-collapse-item>
-            <el-collapse-item title="反馈 Feedback" name="2">
-                <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
-                <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+            <el-collapse-item title="Feedback Feedback" name="2">
+                <div>Control feedback: Allow users to clearly perceive their operations through interface styles and interactive effects;</div>
+                <div> page feedback: After the operation, the current state is clearly displayed through the changes of page elements. </div>
             </el-collapse-item>
-            <el-collapse-item title="效率 Efficiency" name="3">
-                <div>简化流程：设计简洁直观的操作流程；</div>
-                <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
-                <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+            <el-collapse-item title="Efficiency" name="3">
+                <div>Simplify the process: design a simple and intuitive operation process;</div>
+                <div>Clear and clear: the language is clear and clear, allowing users to quickly understand and make decisions;</div>
+                <div> Helps user identification: The interface is simple and straightforward, allowing users to quickly identify rather than recall, reducing the burden of user memory. </div>
             </el-collapse-item>
-            <el-collapse-item title="可控 Controllability" name="4">
-                <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
-                <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+            <el-collapse-item title="Controllability" name="4">
+                <div>User decision-making: According to the scene, users can be given operation suggestions or safety tips, but they cannot replace the user's decision-making;</div>
+                <div>The result is controllable: the user can freely perform operations, including undoing, rolling back, and terminating the current operation. </div>
             </el-collapse-item>
         </el-collapse>
         <hr>
-        <h2>自定义面板标题</h2>
+        <h2>Custom panel title</h2>
         <el-collapse accordion>
             <el-collapse-item>
                 <template slot="title">
-                    一致性 Consistency<i class="header-icon el-icon-info"></i>
+                    Consistency<i class="header-icon el-icon-info"></i>
                 </template>
-                <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
-                <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+                <div>Consistent with real life: Consistent with the process and logic of real life, and follow the language and concepts that users are used to;</div>
+                <div> is consistent in the interface: all elements and structures need to be consistent, such as: design styles, icons and text, element positions, etc. </div>
             </el-collapse-item>
-            <el-collapse-item title="反馈 Feedback">
-                <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
-                <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+            <el-collapse-item title="Feedback Feedback">
+                <div>Control feedback: Allow users to clearly perceive their operations through interface styles and interactive effects;</div>
+                <div> page feedback: After the operation, the current state is clearly displayed through the changes of page elements. </div>
             </el-collapse-item>
-            <el-collapse-item title="效率 Efficiency">
-                <div>简化流程：设计简洁直观的操作流程；</div>
-                <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
-                <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+            <el-collapse-item title="Efficiency Efficiency">
+                <div>Simplify the process: design a simple and intuitive operation process;</div>
+                <div>Clear and clear: the language is clear and clear, allowing users to quickly understand and make decisions;</div>
+                <div> Helps user identification: The interface is simple and straightforward, allowing users to quickly identify rather than recall, reducing the burden of user memory. </div>
             </el-collapse-item>
-            <el-collapse-item title="可控 Controllability">
-                <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
-                <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+            <el-collapse-item title="Controllability Controllability">
+                <div>User decision-making: According to the scene, users can be given operation suggestions or safety tips, but they cannot replace the user's decision-making;</div>
+                <div>The result is controllable: the user can freely perform operations, including undoing, rolling back, and terminating the current operation. </div>
             </el-collapse-item>
         </el-collapse>
     </section>

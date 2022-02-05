@@ -1,26 +1,26 @@
 <template>
     <section>
         <hr>
-        <h2>消息提示</h2>
-        <el-button type="text" @click="open">点击打开 Message Box</el-button>
+        <h2>Message prompt</h2>
+        <el-button type="text" @click="open">Click to open Message Box</el-button>
         <hr>
-        <h2>确认消息</h2>
-        <el-button type="text" @click="open2">点击打开 Message Box</el-button>
+        <h2>Confirmation message</h2>
+        <el-button type="text" @click="open2">Click to open Message Box</el-button>
         <hr>
-        <h2>提交内容</h2>
-        <el-button type="text" @click="open3">点击打开 Message Box</el-button>
+        <h2>Submit content</h2>
+        <el-button type="text" @click="open3">Click to open Message Box</el-button>
 
         <hr>
-        <h2>自定义</h2>
-        <el-button type="text" @click="open4">点击打开 Message Box</el-button>
+        <h2>Custom</h2>
+        <el-button type="text" @click="open4">Click to open Message Box</el-button>
 
         <hr>
-        <h2>使用 HTML 片段</h2>
-        <el-button type="text" @click="open5">点击打开 Message Box</el-button>
+        <h2>Use HTML Fragments</h2>
+        <el-button type="text" @click="open5">Click to open Message Box</el-button>
 
         <hr>
-        <h2>居中布局</h2>
-        <el-button type="text" @click="open6">点击打开 Message Box</el-button>
+        <h2>Centered layout</h2>
+        <el-button type="text" @click="open6">Click to open Message Box</el-button>
     </section>
 </template>
 
@@ -30,8 +30,8 @@
         data: () => ({}),
         methods:{
             open() {
-                this.$alert('这是一段内容', '标题名称', {
-                    confirmButtonText: '确定',
+                this.$alert('This is a piece of content', 'Title name', {
+                    confirmButtonText: 'OK',
                     callback: action => {
                         this.$message({
                             type: 'info',
@@ -41,55 +41,55 @@
                 });
             },
             open2() {
-                this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                this.$confirm('This operation will permanently delete the file, do you want to continue?', 'Prompt', {
+                    confirmButtonText: 'OK',
+                    cancelButtonText: 'Cancel',
                     type: 'warning'
                 }).then(() => {
                     this.$message({
                         type: 'success',
-                        message: '删除成功!'
+                        message: 'Delete successful!'
                     });
                 }).catch(() => {
                     this.$message({
                         type: 'info',
-                        message: '已取消删除'
+                        message: 'Undeleted'
                     });
                 });
             },
             open3() {
-                this.$prompt('请输入邮箱', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
-                    inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
-                    inputErrorMessage: '邮箱格式不正确'
+                this.$prompt('Please enter your email', 'prompt', {
+                    confirmButtonText: 'OK',
+                    cancelButtonText: 'Cancel',
+                    inputPattern: /[\w!#$%&'*+/=?^`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
+                    inputErrorMessage: 'The mailbox format is incorrect'
                 }).then(({ value }) => {
                     this.$message({
                         type: 'success',
-                        message: '你的邮箱是: ' + value
+                        message: 'Your email is: ' + value
                     });
                 }).catch(() => {
                     this.$message({
                         type: 'info',
-                        message: '取消输入'
+                        message: 'Cancel input'
                     });
                 });
             },
             open4() {
                 const h = this.$createElement;
                 this.$msgbox({
-                    title: '消息',
+                    title: 'Message',
                     message: h('p', null, [
-                        h('span', null, '内容可以是 '),
+                        h('span', null, 'The content can be '),
                         h('i', { style: 'color: teal' }, 'VNode')
                     ]),
                     showCancelButton: true,
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                    confirmButtonText: 'OK',
+                    cancelButtonText: 'Cancel',
                     beforeClose: (action, instance, done) => {
                         if (action === 'confirm') {
                             instance.confirmButtonLoading = true;
-                            instance.confirmButtonText = '执行中...';
+                            instance.confirmButtonText = 'Executing...';
                             setTimeout(() => {
                                 done();
                                 setTimeout(() => {
@@ -108,25 +108,25 @@
                 });
             },
             open5() {
-                this.$alert('<strong>这是 <i>HTML</i> 片段</strong>', 'HTML 片段', {
+                this.$alert('<strong>This is an <i>HTML</i> fragment</strong>', 'HTML fragment', {
                     dangerouslyUseHTMLString: true
                 });
             },
             open6() {
-                this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                this.$confirm('This operation will permanently delete the file, do you want to continue?', 'Prompt', {
+                    confirmButtonText: 'OK',
+                    cancelButtonText: 'Cancel',
                     type: 'warning',
                     center: true
                 }).then(() => {
                     this.$message({
                         type: 'success',
-                        message: '删除成功!'
+                        message: 'Delete successful!'
                     });
                 }).catch(() => {
                     this.$message({
                         type: 'info',
-                        message: '已取消删除'
+                        message: 'Undeleted'
                     });
                 });
             }

@@ -15,6 +15,7 @@ Vue.config.productionTip = false
 Vue.use(VueRouter);
 const router = new VueRouter({
   routes,
+  base: '/FRONTEND/vue/appiness/mang/dist/'
 });
 
 new Vue({

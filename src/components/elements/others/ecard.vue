@@ -1,23 +1,23 @@
 <template>
     <section>
         <hr>
-        <h2>基础用法</h2>
+        <h2>Basic usage</h2>
         <el-card class="box-card">
             <div v-for="o in 4" :key="o" class="text item">
-                {{'列表内容 ' + o }}
+                {{'List contents' + o }}
             </div>
         </el-card>
         <hr>
-        <h2>简单卡片</h2>
+        <h2>Simple Cards</h2>
         <el-row>
             <el-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
                 <el-card :body-style="{ padding: '0px' }">
                     <img src="/src/statics/img/hamburger.png" class="image">
                     <div style="padding: 14px;">
-                        <span>好吃的汉堡</span>
+                        <span>Delicious Burgers</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">操作按钮</el-button>
+                            <el-button type="text" class="button">Action button</el-button>
                         </div>
                     </div>
                 </el-card>

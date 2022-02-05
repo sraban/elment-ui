@@ -1,57 +1,57 @@
 <template>
     <section>
         <hr>
-        <h2>基础用法</h2>
+        <h2>Basic usage</h2>
         <div class="box">
             <div class="top">
-                <el-tooltip class="item" effect="dark" content="Top Left 提示文字" placement="top-start">
-                    <el-button>上左</el-button>
+                <el-tooltip class="item" effect="dark" content="Top Left tip text" placement="top-start">
+                    <el-button>Up Left</el-button>
                 </el-tooltip>
-                <el-tooltip class="item" effect="dark" content="Top Center 提示文字" placement="top">
-                    <el-button>上边</el-button>
+                <el-tooltip class="item" effect="dark" content="Top Center Tip Text" placement="top">
+                    <el-button>Top</el-button>
                 </el-tooltip>
-                <el-tooltip class="item" effect="dark" content="Top Right 提示文字" placement="top-end">
-                    <el-button>上右</el-button>
+                <el-tooltip class="item" effect="dark" content="Top Right Tip Text" placement="top-end">
+                    <el-button>Up Right</el-button>
                 </el-tooltip>
             </div>
             <div class="left">
-                <el-tooltip class="item" effect="dark" content="Left Top 提示文字" placement="left-start">
-                    <el-button>左上</el-button>
+                <el-tooltip class="item" effect="dark" content="Left Top Tip Text" placement="left-start">
+                    <el-button>Top left</el-button>
                 </el-tooltip>
-                <el-tooltip class="item" effect="dark" content="Left Center 提示文字" placement="left">
-                    <el-button>左边</el-button>
+                <el-tooltip class="item" effect="dark" content="Left Center Tip Text" placement="left">
+                    <el-button>Left</el-button>
                 </el-tooltip>
-                <el-tooltip class="item" effect="dark" content="Left Bottom 提示文字" placement="left-end">
-                    <el-button>左下</el-button>
+                <el-tooltip class="item" effect="dark" content="Left Bottom tip text" placement="left-end">
+                    <el-button>Bottom Left</el-button>
                 </el-tooltip>
             </div>
 
             <div class="right">
-                <el-tooltip class="item" effect="dark" content="Right Top 提示文字" placement="right-start">
-                    <el-button>右上</el-button>
+                <el-tooltip class="item" effect="dark" content="Right Top Tip Text" placement="right-start">
+                    <el-button>Top right</el-button>
                 </el-tooltip>
-                <el-tooltip class="item" effect="dark" content="Right Center 提示文字" placement="right">
-                    <el-button>右边</el-button>
+                <el-tooltip class="item" effect="dark" content="Right Center Tip Text" placement="right">
+                    <el-button>Right</el-button>
                 </el-tooltip>
-                <el-tooltip class="item" effect="dark" content="Right Bottom 提示文字" placement="right-end">
-                    <el-button>右下</el-button>
+                <el-tooltip class="item" effect="dark" content="Right Bottom tip text" placement="right-end">
+                    <el-button>bottom right</el-button>
                 </el-tooltip>
             </div>
             <div class="bottom">
-                <el-tooltip class="item" effect="dark" content="Bottom Left 提示文字" placement="bottom-start">
-                    <el-button>下左</el-button>
+                <el-tooltip class="item" effect="dark" content="Bottom Left tip text" placement="bottom-start">
+                    <el-button>down left</el-button>
                 </el-tooltip>
-                <el-tooltip class="item" effect="dark" content="Bottom Center 提示文字" placement="bottom">
-                    <el-button>下边</el-button>
+                <el-tooltip class="item" effect="dark" content="Bottom Center Tip Text" placement="bottom">
+                    <el-button>below</el-button>
                 </el-tooltip>
-                <el-tooltip class="item" effect="dark" content="Bottom Right 提示文字" placement="bottom-end">
-                    <el-button>下右</el-button>
+                <el-tooltip class="item" effect="dark" content="Bottom Right tip text" placement="bottom-end">
+                    <el-button>down right</el-button>
                 </el-tooltip>
             </div>
         </div>
 
         <hr>
-        <h2>主题</h2>
+        <h2>Theme</h2>
         <el-tooltip content="Top center" placement="top">
             <el-button>Dark</el-button>
         </el-tooltip>
@@ -60,17 +60,17 @@
         </el-tooltip>
 
         <hr>
-        <h2>更多 Content</h2>
+        <h2>More Content</h2>
         <el-tooltip placement="top">
-            <div slot="content">多行信息<br/>第二行信息</div>
+            <div slot="content">Multi-line information<br/>Second line information</div>
             <el-button>Top center</el-button>
         </el-tooltip>
 
         <hr>
-        <h2>高级扩展</h2>
+        <h2>Advanced Extensions</h2>
         <template>
-            <el-tooltip :disabled="disabled" content="点击关闭 tooltip 功能" placement="bottom" effect="light">
-                <el-button @click="disabled = !disabled">点击{{disabled ? '开启' : '关闭'}} tooltip 功能</el-button>
+            <el-tooltip :disabled="disabled" content="Click to close the tooltip function" placement="bottom" effect="light">
+                <el-button @click="disabled = !disabled">Click {{disabled ? 'on' : 'off'}} tooltip function</el-button>
             </el-tooltip>
         </template>
 
