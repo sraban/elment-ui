@@ -4,6 +4,7 @@
 - https://developpaper.com/question/element-ui-custom-table-header-to-display-exceptions/
 - https://www.codeshelper.com/article/25070.html
 - https://www.codeshelper.com/article/24231.html
+- https://codepen.io/yufish/pen/oNWjKeY
 
 
   renderContent (h, { node, data, store }) {
@@ -23,6 +24,7 @@
 
 # vue2-datatable
 - https://onewaytech.github.io/vue2-datatable/examples/dist/#advanced
+
 
 
 
