@@ -23,3 +23,46 @@
 
 # vue2-datatable
 - https://onewaytech.github.io/vue2-datatable/examples/dist/#advanced
+
+
+
+
+
+# v-model custom compoment
+https://learnvue.co/2021/01/everything-you-need-to-know-about-vue-v-model/#tips-for-using-v-model
+
+v-model.number='value'
+v-model.trim.laz
+v-model:columns
+
+
+===============================
+
+<custom-text-input v-model="value" v-model:others='lastName'/>
+
+<!-- IS THE SAME AS -->
+
+<custom-text-input 
+   :modelValue="value"
+   :others="lastName"
+   @update:modelValue="value = $event"
+   @update:others="lastName = $event"
+/>
+
+@input='$emit("update:modelValue", $event.target.value)'
+@input='$emit("update:others", $event.target.value)'
+_________________________________________________________________________________________________
+named v-model
+<custom-text-input v-model:name="value" />
+
+<custom-text-input 
+      v-model='value' 
+      v-model:lastName='lastName'
+    />
+
+<custom-text-input 
+  v-model.no-whitespace='value' 
+  v-model:lastName='lastName'
+/>
+
+

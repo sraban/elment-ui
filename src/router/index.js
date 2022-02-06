@@ -50,6 +50,7 @@ const EColorPicker = () => import('../components/elements/form/ecolorpicker.vue'
 const ETransfer = () => import('../components/elements/form/etransfer.vue');
 const EForm = () => import('../components/elements/form/eform.vue');
 
+
 const ETable = () => import('../components/elements/data/etable.vue');
 const ETag = () => import('../components/elements/data/etag.vue');
 const EProgress = () => import('../components/elements/data/eprogress.vue');
@@ -57,6 +58,30 @@ const ETree = () => import('../components/elements/data/etree.vue');
 const EPagination = () => import('../components/elements/data/epagination.vue');
 const EBadge = () => import('../components/elements/data/ebadge.vue');
 
+
+const chkFiltersDD = () => import('../components/custom/chkFiltersDD.vue');
+const ctags = () => import('../components/custom/ctags.vue');
+const dateField = () => import('../components/custom/dateField.vue');
+const dform = () => import('../components/custom/dform.vue');
+const dynamicTable = () => import('../components/custom/dynamicTable.vue');
+const tags = () => import('../components/custom/tags.vue');
+
+
+const route_Custom = {
+    path: '/',
+    component: Home,
+    name: 'Custom',
+    iconCls: 'fa fa-circle-o-notch',
+    hidden: false,
+    children: [
+         {path: 'chkFiltersDD', component: chkFiltersDD, name: 'chk dropdowns', hidden: false},
+         {path: 'ctags', component: ctags, name: 'multi select with custom', hidden: false},
+         {path: 'dateField', component: dateField, name: 'dates', hidden: false},
+         {path: 'dform', component: dform, name: 'forms', hidden: false},
+         {path: 'dynamicTable', component: dynamicTable, name: 'datatable', hidden: false},
+         {path: 'tags', component: tags, name: 'multi selectbox', hidden: false},
+    ]
+};
 
 const route_NotFound = {
     path: '/404',
@@ -213,6 +238,7 @@ const routes = [
     route_Selftemplates,
     route_Form,
     route_Data,
+    route_Custom
 ];
 
 export default routes;
