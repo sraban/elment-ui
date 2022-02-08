@@ -34,12 +34,11 @@
             <template v-for="(bool, col) in columns">
               <el-table-column
                 v-if="bool"
-                :key="col" 
-                :label="col.toUpperCase()" 
-                :prop="col" 
-                min-width="120" 
-                align="center" 
-              >
+                :key="col"
+                :label="col.toUpperCase()"
+                :prop="col"
+                min-width="120"
+                align="center">
               </el-table-column>
             </template>
           </el-table>
@@ -47,8 +46,7 @@
           
 
       <selectCheckbox></selectCheckbox>
-
-          <textarea v-if="tableData" v-html="tableData"></textarea>
+      <textarea v-if="tableData" v-html="tableData"></textarea>
 
 
     </section>

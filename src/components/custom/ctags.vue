@@ -102,8 +102,7 @@
                  if(row.name == query.toLowerCase() ) row.name = query;
                  return row;
               });
-
-              console.log( this.clients );
+              
             }, 200)
           } else {
             this.clients = []
