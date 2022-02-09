@@ -65,7 +65,9 @@ const dateField = () => import('../components/custom/dateField.vue');
 const dform = () => import('../components/custom/dform.vue');
 const dynamicTable = () => import('../components/custom/dynamicTable.vue');
 const tags = () => import('../components/custom/tags.vue');
-
+const multiform = () => import('../components/custom/multiform.vue');
+const suggesttextarea = () => import('../components/custom/suggesttextarea.vue');
+const dragdropfile = () => import('../components/custom/dragdropfile.vue');
 
 const route_Custom = {
     path: '/',
@@ -76,10 +78,14 @@ const route_Custom = {
     children: [
          {path: 'chkFiltersDD', component: chkFiltersDD, name: 'chk dropdowns', hidden: false},
          {path: 'ctags', component: ctags, name: 'multi select with custom', hidden: false},
-         {path: 'dateField', component: dateField, name: 'dates', hidden: false},
-         {path: 'dform', component: dform, name: 'forms', hidden: false},
-         {path: 'dynamicTable', component: dynamicTable, name: 'datatable', hidden: false},
          {path: 'tags', component: tags, name: 'multi selectbox', hidden: false},
+         {path: 'dateField', component: dateField, name: 'dates', hidden: false},
+         {path: 'dynamicTable', component: dynamicTable, name: 'datatable', hidden: false},         
+         {path: 'dform', component: dform, name: 'dforms', hidden: false},
+         {path: 'multiform', component: multiform, name: 'multiform', hidden: false},
+         {path: 'suggesttextarea', component: suggesttextarea, name: 'suggesttextarea', hidden: false},
+         {path: 'dragdropfile', component: dragdropfile, name: 'dragdropfile', hidden: false},
+         
     ]
 };
 
