@@ -4,14 +4,12 @@
     
         <h1>dynamic-table Component</h1>
 
-
+<div>{{ columns }}</div>
 
         <el-select
             v-model="selectedCol"
             class="select-columns"
-            multiple            
-            filterable
-            allow-create
+            multiple
             :popper-append-to-body="false"
           >
           <template #prefix>
@@ -21,7 +19,7 @@
           <el-option v-for="(bool, col) in columns" :key="col" :value="col">
 
             <div draggable="true" @drag="e=>setDragging(e)" @dragover="e=>setDraggedOver(e)">
-              <el-checkbox :model-value="columns[col]" @click="e => e.preventDefault()">
+              <el-checkbox v-model="columns[col]" @click="e => e.preventDefault()">
                 {{ col }}
               </el-checkbox>
             </div>

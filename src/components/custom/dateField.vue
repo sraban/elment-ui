@@ -5,94 +5,118 @@
     <h1>https://codepen.io/xingzhi/pen/vZbpPK</h1>
     <h1>https://codepen.io/yufish/pen/oNWjKeY</h1>
 
-<textarea v-html="qForm.items" :key="timeStammp"></textarea>
 
-<el-form :model="qForm" ref="qForm" label-width="120px" :rules="rules">
-
-  <div v-for="(item, index) in qForm.items" :key="index">
-    <div class="col">
-      
-      <div v-for="(field,ind) in Object.keys(item)" :key="ind">
-      
-            <span v-if="field == 'description' && qForm.flags[index] && qForm.flags[index][field]">
-              <i class="el-icon-circle-close" @click="removeCol(index, 'description')"></i>
-              <el-form-item label="Description" :prop="'items.' + index + '.description'">
-                <el-input v-model="item.description"></el-input>
-              </el-form-item>
-            </span>
-
-            <span v-if="field == 'price' && qForm.flags[index] && qForm.flags[index][field]">
-              <i class="el-icon-circle-close" @click="removeCol(index, 'price')"></i>
-              <el-form-item label="Price" :prop="'items.' + index + '.price'" :rules="rules.price">
-                <el-input v-model="item.price"></el-input>
-              </el-form-item>
-            </span>
-
-            <span v-if="field == 'status' && qForm.flags[index] && qForm.flags[index][field]">
-              <i class="el-icon-circle-close" @click="removeCol(index, 'status')"></i>
-              <el-form-item label="Status" :prop="'items.' + index + '.status'">
-                <el-input v-model="item.status"></el-input>
-              </el-form-item>
-            </span>
-
-            <span v-if="field == 'tags' && qForm.flags[index] && qForm.flags[index][field]">
-              <i class="el-icon-circle-close" @click="removeCol(index, 'tags')"></i>
-              <el-form-item label="Tags" :prop="'items.' + index + '.tags'">
-                <el-input v-model="item.tags"></el-input>
-              </el-form-item>
-            </span>
+  <div class="block">
+    <span class="demonstration">Use value-format</span>
+    <div class="demonstration">Value: {{ value1 }}</div>
+    <el-date-picker
+      v-model="value1"
+      type="date"
+      placeholder="Pick a Date"
+      format="yyyy/MM/dd"
+      value-format="yyyy-MM-dd">
+    </el-date-picker>
+  </div>
 
 
-            <span v-if="field == 'country' && qForm.flags[index] && qForm.flags[index][field]">
-              <i class="el-icon-circle-close" @click="removeCol(index, 'country')"></i>
-              <el-form-item label="Country" :prop="'items.' + index + '.country'">
-                <el-input v-model="item.country"></el-input>
-              </el-form-item>
-            </span>
+  <div class="block">
+    
+    
+    <el-date-picker
+      v-model="value2"
+      type="date"
+      placeholder="Pick a day"
+      popper-class="sraban-date-picker"
+      :picker-options="pickerOptions">
+    </el-date-picker>
 
-
-            <span v-if="field == 'keywords' && qForm.flags[index] && qForm.flags[index][field]">
-              <i class="el-icon-circle-close" @click="removeCol(index, 'keywords')"></i>
-              <el-form-item label="Keywords" :prop="'items.' + index + '.keywords'">
-                <el-input v-model="item.keywords"></el-input>
-              </el-form-item>
-            </span>
-
-          
+    <el-popover placement="top">
+      <div style="width: 70%;">
+        <el-row :gutter="20">
+          <el-col :span="12" :offset="0">
+            <el-button type="primary" size="mini" @click="visible = false">@Today</el-button>
+          </el-col>
+          <el-col :span="12" :offset="0">
+            <el-input-number type="number" size="mini" label="" :min="1" :max="10" :step="1" :controls="true" controls-position="both" @change="e => e" @input="() => {}">
+            </el-input-number>
+          </el-col>
+        </el-row>    
       </div>
+      <span slot="reference"> <i class="el-icon-edit"></i> </span>
+    </el-popover>
+
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <el-form :model="form" ref="form" :rules="rules" label-width="80px" :inline="false" size="mini" label-position="top">
+   
+    <el-form-item label="Release date">
+      <el-input v-model="form.rdate"></el-input>
+    </el-form-item>
 
 
-      <select @change="addCol(index, $event)">
-        <option value="">Add</option>
-        <option value="description" :disabled="qForm.flags[index] && qForm.flags[index]['description']">Description</option>
-        <option value="price" :disabled="qForm.flags[index] && qForm.flags[index]['price']">price</option>
-        <option value="keywords" :disabled="qForm.flags[index] && qForm.flags[index]['keywords']">Keywords</option>
-        <option value="status" :disabled="qForm.flags[index] && qForm.flags[index]['status']">Status</option>
-        <option value="tags" :disabled="qForm.flags[index] && qForm.flags[index]['tags']">Tags</option>
-        <option value="country" :disabled="qForm.flags[index] && qForm.flags[index]['country']">Country</option>
-      </select>
-
-    </div>
-  </div>  
-
-</el-form>
-
-
-
-  <select @change="addRow($event)">
-    <option value="">Or</option>
-    <option value="description">Description</option>
-    <option value="price">price</option>
-    <option value="keywords">Keywords</option>
-    <option value="status">Status</option>
-    <option value="tags">Tags</option>
-    <option value="country">Country</option>
-  </select>
+<!-- 1 -->
 
   
-<br><br>
-<button @click="submitForm('qForm')">Submit</button>
+    <el-form-item  :rules="{required:true}">
+      <template scoped-slot="error">
+        <el-row :gutter="20">
+          <el-col :span="12" :offset="0">
+            Status Status Status Status Status
+            </el-col>
+          <el-col :span="12" :offset="0">
 
+            <el-select v-model="mode" value-key="mode" placeholder="" clearable filterable @change="e => e">
+              <el-option v-for="item in 10"
+                :key="item"
+                :label="item+'- Equal'"
+                :value="item">
+              </el-option>
+            </el-select>
+
+          </el-col>
+        </el-row>
+        
+      </template>
+      
+      
+
+      
+      
+    </el-form-item>
+
+
+<!-- 2 -->
+  
+    <el-form-item label="Release date">
+      <el-input v-model="form.rdate"></el-input>
+    </el-form-item>
+
+
+<!-- 3 -->
+  
+    <el-form-item label="Release date">
+      <el-input v-model="form.rdate"></el-input>
+    </el-form-item>
+
+
+<!-- 4 -->
+
+    <el-form-item label="Release date">
+      <el-input v-model="form.rdate"></el-input>
+    </el-form-item>
+
+
+    <el-form-item>
+      <el-button type="primary" @click="e =>e">Save</el-button>
+      <el-button>Cancel</el-button>
+    </el-form-item>
+  </el-form>
+  
 
 
   </section>
@@ -104,75 +128,58 @@
   export default  {
     name: 'date-field',
     props: [],
-    mounted () {
-
-    },
     data () {
       return {
-          timeStammp: + new Date(),
-          qForm: {
-            items: [{status: '', description:'', price:'', keywords:'', tags:'', country:''}],
-            flags: [{status: true}]
+        mode:'',
+        form:{
+          rdate:'',
+          status:[],
+          tags:[],
+          country:[]
+        },
+        rules:{},
+        value1: '',
+        value2: '',
+        value3: '',
+        pickerOptions: {
+          disabledDate(time) {
+            var d = new Date();
+            //console.log(d.toLocaleDateString());
+            d.setMonth(d.getMonth() - 3);
+            //console.log( time.getTime() );
+            // console.log(d.toLocaleDateString(), d.getTime() );
+            return false;
           },
-          rules: {
-            description: { required: true, message: 'required', trigger: 'blur' },
-            price: { required: true, message: 'Price required', trigger: 'blur' },
-            keywords: { required: true, message: 'required', trigger: 'blur' },
-            status: { required: true, message: 'required', trigger: 'blur' },
-            tags: { required: true, message: 'required', trigger: 'blur' },
-            country: { required: true, message: 'required', trigger: 'blur' }
-          }
+          onPick(maxDate, minDate) {
+            alert('loading...');
+          },
+          shortcuts: [{
+            text: 'Today11',
+            onClick(picker) {
+              picker.$emit('pick', '2000-10-10');
+            }
+          }]
+        }
       }
     },
     methods: {
-        submitForm( formName ) {
-          this.$refs[formName].validate((valid) => {
-            if (valid) {
-              alert('submit!');
-            } else {
-              console.log('error submit!!');
-              return false;
-            }
-          });
-        },
-        addRow( $event ) {
-          
-          this.qForm.items.push({status: '', description:'', price:'', keywords:'', tags:'', country:''});//          
-          let newIndex = this.qForm.items.length-1;
-          
-          let col = $event.target.value;
-          if(this.qForm.flags[newIndex]==undefined) this.qForm.flags[newIndex] = {};
-          this.qForm.flags[newIndex][col] = true;//
-          this.timeStammp = +new Date();
-          $event.target.value = '';
-        },
-        removeRow( index ) {
-          this.qForm.items.splice(index,1);
-          this.qForm.flags.splice(index,1);
-          this.timeStammp = +new Date();
-        },
-        addCol(rowIndex, $event) {
-          let col = $event.target.value;
-          this.qForm.flags[rowIndex][col] = true;
-          this.timeStammp = +new Date();
-          $event.target.value = '';
-        },
-        removeCol(rowIndex, col){
-          delete this.qForm.flags[rowIndex][col];
-          delete this.qForm.flags[rowIndex][col];
-
-          this.qForm.items[rowIndex][col] = '';
-          this.qForm.flags.forEach( (row, index) => {
-            if(Object.keys(row).length == 0) {
-              this.qForm.items.splice(index, 1); this.qForm.flags.splice(index, 1);
-            }
-          });
-          console.log( this.qForm.flags );
-          this.timeStammp = +new Date();
+        jobYearChange() {
+            alert('222');
         }
     },
     computed: {
 
+    },
+    mounted() {
+      document.querySelectorAll('.el-date-editor').forEach((el) => {
+          el.addEventListener('click', () => {
+            
+            // let popDate = document.querySelector('.sraban-date-picker');
+          // alert(popDate.clientHeight);
+          document.querySelector('.sraban-date-picker .el-picker-panel__sidebar   .el-picker-panel__shortcut').innerHTML = 'Today <input type="number" style="width: 70px;">';
+
+          });
+      });
     }
 }
 
@@ -183,4 +190,9 @@
   .date-field {
 
   }
+
 </style>
+
+<div class="el-picker-panel__sidebar">
+    <button type="button" class="el-picker-panel__shortcut">Today</button><button type="button" class="el-picker-panel__shortcut">Yesterday</button><button type="button" class="el-picker-panel__shortcut">A week ago</button>
+</div>

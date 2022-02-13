@@ -1,11 +1,11 @@
 <template lang="html">
 <!-- https://jsfiddle.net/cgL6y9kq/34/ -->
   <section class="multiform">
-    <h1>multiform Component</h1>
+    <h1>Multiform Component - </h1>
 
-    {{ form }}
+    
 
-    <el-form :model="form" ref="form" label-width="120px" :rules="formRules" size="min" :set="defaultFields = Object.keys(fields)">
+    <el-form :model="form" ref="form" label-width="120px" :rules="formRules" size="min" :set="defaultFields = Object.keys(fields)" label-position="top">
         <div v-for="(item, row) in form.fields" :key="row"> <!-- Row -->
            <div v-for="(field, col) in Object.keys(item)" :key="col"> <!-- Col/Fields in Form -->
 
@@ -17,20 +17,83 @@
                   <!-- {{ field }} -- {{ dfieldkey }} -->
                   <span v-if="field == dfieldkey" style="border:1px solid red; padding:5px;margin:5px;display:block;">
                     
-                        <i class="el-icon-circle-close" @click="removeFields(field, row)"></i>
                         
-                        <el-select v-model="form.modes[row][field]">
-                          <el-option label="Equal" value="="></el-option>
-                          <el-option label="Similar" value="~"></el-option>
-                          <el-option label="Not Equal" value="!"></el-option>
-                          <el-option label="less than" value="<"></el-option>
-                          <el-option label="Greater than" value=">"></el-option>
-                          <el-option label="Greater-Equalto" value=">="></el-option>
-                          <el-option label="Less-Equalto" value="<="></el-option>
-                        </el-select>
+                        
+                        
 
-                        <el-form-item :label="dfield.label" :prop="'fields.'+row+'.'+field">
-                          <el-select v-model="item[field]" multiple></el-select><!-- 0. String, 1. Multiple array value,  2. Field Type(From, To) -->
+                        <el-form-item :prop="'fields.'+row+'.'+field" >
+                          <template slot="label" style="width:100%;">
+                            <el-row :gutter="20" type="flex">
+                              <el-col :span="14" :offset="0">
+                               <i class="el-icon-circle-close" @click="removeFields(field, row)"></i> {{ dfield.label }}
+                              </el-col>
+                              <el-col :span="10" :offset="0">
+                                <el-select v-model="form.modes[row][field]" style="float:right;">
+                                  <el-option :label="'Equal_'+i" :value="i" v-for="i in 10" :key="i"></el-option>
+                                </el-select>
+                              </el-col>
+                            </el-row>
+                          </template>
+                          
+                        <!-- select -->
+                          <el-select v-model="item[field]" multiple style="width:100%;"></el-select><!-- 0. String, 1. Multiple array value,  2. Field Type(From, To) -->
+                        <!-- date -->
+                          <el-row :gutter="20">
+                            <el-col :span="24" :offset="0">
+                              From:
+                              <el-date-picker type="date" popper-class="sraban-date-picker"> </el-date-picker>
+                              <el-popover placement="top">
+                                <div style="width: 70%;">
+                                  <el-row :gutter="20">
+                                    <el-col :span="12" :offset="0">
+                                      <el-button type="primary" size="mini" @click="visible = false">@Today</el-button>
+                                    </el-col>
+                                    <el-col :span="12" :offset="0">
+                                      <el-input-number type="number" size="mini" label="" :min="1" :max="10" :step="1" :controls="true" controls-position="both" @change="e => e" @input="() => {}">
+                                      </el-input-number>
+                                    </el-col>
+                                  </el-row>    
+                                </div>
+                                <span slot="reference"> <i class="el-icon-edit"></i> </span>
+                              </el-popover>
+                            </el-col>
+                          </el-row>
+
+                          <el-row :gutter="20">
+                            <el-col :span="24" :offset="0">
+                              To: 
+                              <el-date-picker type="date" popper-class="sraban-date-picker"> </el-date-picker>
+                              <el-popover placement="top">
+                                <div style="width: 70%;">
+                                  <el-row :gutter="20">
+                                    <el-col :span="12" :offset="0">
+                                      <el-button type="primary" size="mini" @click="visible = false">@Today</el-button>
+                                    </el-col>
+                                    <el-col :span="12" :offset="0">
+                                      <el-input-number type="number" size="mini" label="" :min="1" :max="10" :step="1" :controls="true" controls-position="both" @change="e => e" @input="() => {}">
+                                      </el-input-number>
+                                    </el-col>
+                                  </el-row>    
+                                </div>
+                                <span slot="reference"> <i class="el-icon-edit"></i> </span>
+                              </el-popover>
+
+                            </el-col>
+                          </el-row>
+                        <!-- checkbox -->
+                        
+                        <el-checkbox-group v-model="item[field]" @change="e =>e">
+                          <el-checkbox v-for="item in 4" :key="item.key" :label="item">
+                            Sraban - {{item}}
+                          </el-checkbox>
+                        </el-checkbox-group>
+
+                        <!-- editable input -->
+                        <el-input v-model="item[field]" placeholder="" size="normal" clearable @change="e => e"></el-input>
+                        
+                          
+
+
                         </el-form-item>
 
                   </span>
@@ -58,7 +121,7 @@
         </div>
 
 
-        <select @change="newGroupFields($event.target.value, true)">
+        <select @change="newGroupFields($event.target.value, true)" style="float: right;position: relative;top: -20px;">
           <option value="">OR</option>
           <option v-for="(dfield, ind) of defaultFields" 
                   :value="dfield"                  
@@ -68,6 +131,9 @@
         </select>
 
     </el-form>
+
+    {{ form }}
+
 
   </section>
 
@@ -205,7 +271,9 @@
 </script>
 
 <style scoped lang="scss">
-  .multiform {
-
+  .multiform ::v-deep {
+    .el-form-item label{
+      width:100%;
+    }
   }
 </style>
