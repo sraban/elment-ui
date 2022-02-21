@@ -68,6 +68,7 @@ const tags = () => import('../components/custom/tags.vue');
 const multiform = () => import('../components/custom/multiform.vue');
 const suggesttextarea = () => import('../components/custom/suggesttextarea.vue');
 const dragdropfile = () => import('../components/custom/dragdropfile.vue');
+const fields = () => import('../components/custom/fields.vue');
 
 const route_Custom = {
     path: '/',
@@ -85,7 +86,7 @@ const route_Custom = {
          {path: 'multiform', component: multiform, name: 'multiform', hidden: false},
          {path: 'suggesttextarea', component: suggesttextarea, name: 'suggesttextarea', hidden: false},
          {path: 'dragdropfile', component: dragdropfile, name: 'dragdropfile', hidden: false},
-         
+         {path: 'fields', component: fields, name: 'various Fields', hidden: false},         
     ]
 };
 
